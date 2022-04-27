@@ -54,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
         SetGroundSpeed();
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft!=0)
             Jump();
-
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            currentGroundSpeed *= 3;
+        }
 
     }
 
