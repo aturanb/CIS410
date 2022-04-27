@@ -54,10 +54,6 @@ public class PlayerMovement : MonoBehaviour
         SetGroundSpeed();
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft!=0)
             Jump();
-        if (Input.GetKeyDown(KeyCode.LeftShift)) {
-            currentGroundSpeed *= 3;
-        }
-
     }
 
     //Check if the player is sprinting or walking, then set the currentGroundSpeed
