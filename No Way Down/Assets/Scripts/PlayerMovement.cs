@@ -7,11 +7,22 @@ public class PlayerMovement : MonoBehaviour
 {    
     [Header("Player")]
     [SerializeField] Transform playerOrientation;
+    [SerializeField] Transform playerCameraLocation;
+    [SerializeField] Camera playerCamera;
+
+    [Header("Camera Effects")]
+    [SerializeField] private float slidingCameraHeight;
+    [SerializeField] private float fov;
+    [SerializeField] private float slidingFov;
+    [SerializeField] private float fovTransitionTime;
 
     [Header("Ground Movement")]
     [SerializeField] float walkingSpeed = 30f;
+    [SerializeField] float slidingSpeed = 55f;
+    [SerializeField] float slidingAcceleration = 20f;
     [Tooltip("When shift gets pressed, Walking Speed gets multiplied with Sprint Multiplier")]
-    [SerializeField] float sprintMultiplier = 1.5f;
+    [SerializeField] float sprintSpeed = 45f;
+    [SerializeField] float sprintAcceleration = 1.5f;
     [SerializeField] float dragOnGround = 6f;
     
     [Header("Air Movement")]
@@ -39,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m_Movement;
     
     Rigidbody m_Rigidbody;
+    
 
     private void Start()
     {
@@ -52,17 +64,38 @@ public class PlayerMovement : MonoBehaviour
     {
         DragControl();
         SetGroundSpeed();
+        //Sliding(); INPROGRESS
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft!=0)
             Jump();
+
     }
 
-    //Check if the player is sprinting or walking, then set the currentGroundSpeed
-    private void SetGroundSpeed()
+    private void Sliding()
     {
+        if (Input.GetKeyDown(KeyCode.LeftControl) && Input.GetKey(KeyCode.W) && onGround)
+        {
+            playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, slidingFov, fovTransitionTime * Time.deltaTime);
+            m_Rigidbody.AddForce(playerOrientation.forward * slidingSpeed, ForceMode.VelocityChange);
+            //currentGroundSpeed = Mathf.Lerp(currentGroundSpeed, slidingSpeed, slidingAcceleration * Time.deltaTime);
+
+
+        }
+        
+        playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, fov, fovTransitionTime * Time.deltaTime);
+
+    }
+
+
+    //Check if the player is sprinting or walking, then set the currentGroundSpeed
+    void SetGroundSpeed()
+    {
+
         if (Input.GetKey(KeyCode.LeftShift) && onGround)
-            currentGroundSpeed = walkingSpeed * sprintMultiplier;
+        {
+            currentGroundSpeed = Mathf.Lerp(currentGroundSpeed, sprintSpeed, sprintAcceleration * Time.deltaTime);
+        }
         else
-            currentGroundSpeed = walkingSpeed;
+            currentGroundSpeed = Mathf.Lerp(currentGroundSpeed, walkingSpeed, sprintAcceleration * Time.deltaTime);
     }
 
     private void FixedUpdate()
