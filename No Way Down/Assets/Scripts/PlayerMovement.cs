@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float slidingCameraHeight;
     [SerializeField] private float fov;
     [SerializeField] private float slidingFov;
+    [SerializeField] private float glidingFov;
     [SerializeField] private float fovTransitionTime;
 
     [Header("Ground Movement")]
@@ -32,8 +33,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpImpulse = 5f;
     [SerializeField] float dragOnAir = 2f;
 
+    [Header("Air Gliding Movement")]
+    [SerializeField] float glidingDownwardForce = 2f;
 
-    
+
+
+
     //To keep track of the jumps left that player can do
     private int jumpsLeft;
 
@@ -45,11 +50,12 @@ public class PlayerMovement : MonoBehaviour
 
     //For checking if the player is on the ground
     bool onGround;
+    bool gliding;
 
     //For calculating the Vector3 movement of the player
     Vector3 m_Movement;
     
-    Rigidbody m_Rigidbody;
+    public Rigidbody m_Rigidbody;
     
 
     private void Start()
@@ -58,18 +64,39 @@ public class PlayerMovement : MonoBehaviour
         m_Rigidbody.freezeRotation = true;
         jumpsLeft = totalJumpAmount;
         currentGroundSpeed = walkingSpeed;
+        gliding = false;
     }
 
     private void Update()
     {
         DragControl();
         SetGroundSpeed();
+        Gliding();
         //Sliding(); INPROGRESS
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft!=0)
             Jump();
 
     }
 
+    private void Gliding()
+    {
+        if (!onGround && Input.GetKey(KeyCode.F))
+        {
+            m_Rigidbody.useGravity = false;
+            gliding = true;
+            m_Rigidbody.AddForce(Vector3.down * glidingDownwardForce, ForceMode.Force);
+            playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, glidingFov, fovTransitionTime * Time.deltaTime);
+        }
+        else
+        {
+            m_Rigidbody.useGravity = true;
+            gliding = false;
+            playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, fov, fovTransitionTime * Time.deltaTime);
+        }
+
+    }
+
+    //INPROGRESS (NOT ENABLED)
     private void Sliding()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl) && Input.GetKey(KeyCode.W) && onGround)
@@ -117,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
     void Move() {
         if (onGround)
             m_Rigidbody.AddForce(m_Movement.normalized * currentGroundSpeed, ForceMode.Acceleration);
-        else
+        else if(!onGround && !gliding)
             m_Rigidbody.AddForce(m_Movement.normalized * speedOnAir, ForceMode.Acceleration);
     }
 

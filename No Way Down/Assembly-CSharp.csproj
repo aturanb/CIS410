@@ -58,17 +58,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\JumpToLevel2.cs" />
     <Compile Include="Assets\Scripts\PlayerCamera.cs" />
+    <Compile Include="Assets\Scripts\WallRunning.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\EndingGame.cs" />
+    <Compile Include="Assets\Scripts\Crouching.cs" />
     <Compile Include="Assets\Scripts\EnemyChase.cs" />
     <Compile Include="Assets\Scripts\PlayerMouseRotation.cs" />
+    <Compile Include="Assets\Scripts\Sliding.cs" />
     <Compile Include="Assets\Scripts\JumpToLevel3.cs" />
     <Compile Include="Assets\Scripts\FallDetect.cs" />
     <Compile Include="Assets\Scripts\EnemyDeath.cs" />
-    <Compile Include="Assets\Scripts\WallRunning.cs" />
-    <Compile Include="Assets\Scripts\Crouching.cs" />
-    <Compile Include="Assets\Scripts\Sliding.cs" />
+    <Compile Include="Assets\Scripts\PlayerDeath.cs" />
+    <Compile Include="Assets\Scripts\PlayerGliding.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

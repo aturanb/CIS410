@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WallRunning : MonoBehaviour
 {
+    [SerializeField] PlayerMovement playerMovementScript;
     [SerializeField] Transform orientation;
     [Header("Wall Detection")]
     [SerializeField] float wallDistance = 0.5f;
@@ -23,9 +24,6 @@ public class WallRunning : MonoBehaviour
     [SerializeField] float cameraTiltTransitionTime;
 
     public float tilt { get; private set; }
-
-
-
 
     bool wallLeft = false;
     bool wallRight = false;
@@ -113,7 +111,8 @@ public class WallRunning : MonoBehaviour
 
     void StopWallRunning()
     {
-        m_rigidbody.useGravity = true;
+        if(playerMovementScript.m_Rigidbody.useGravity == true)
+            m_rigidbody.useGravity = true;
         playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, fov, fovTransitionTime * Time.deltaTime);
         
         tilt = Mathf.Lerp(tilt, 0, cameraTiltTransitionTime * Time.deltaTime);
