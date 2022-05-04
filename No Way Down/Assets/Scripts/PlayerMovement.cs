@@ -151,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
     //For detecting collisions and resetting variables
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "ground")
+        if (other.gameObject.tag == "ground" || other.gameObject.tag == "spawnGround1" || other.gameObject.tag == "spawnGround2")
         {
             onGround = true;
             jumpsLeft = totalJumpAmount;
