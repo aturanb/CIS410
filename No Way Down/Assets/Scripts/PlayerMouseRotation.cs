@@ -12,6 +12,9 @@ public class PlayerMouseRotation : MonoBehaviour
     [SerializeField] Transform playerOrientation;
     [SerializeField] float sensitivity = 1.80f;
     [SerializeField] float xRotationLimit = 90f;
+    
+    [Header("Model")]
+    [SerializeField] Transform playerModel;
 
     Vector2 rotation;
 
@@ -24,6 +27,7 @@ public class PlayerMouseRotation : MonoBehaviour
     {
         ProcessMouseInput();
         AdjustCameraRotation();
+        AdjustModelRotation();
     }
 
     //Hides and locks the cursor
@@ -47,6 +51,14 @@ public class PlayerMouseRotation : MonoBehaviour
         cameraHolder.transform.rotation = Quaternion.Euler(rotation.x, rotation.y, wallRunning.tilt);
         playerOrientation.rotation = Quaternion.Euler(0, rotation.y, wallRunning.tilt);
         //Limit the X-axis rotation
+        rotation.x = Mathf.Clamp(rotation.x, -xRotationLimit, xRotationLimit);
+
+    }
+
+    void AdjustModelRotation()
+    {
+
+        playerModel.transform.rotation = Quaternion.Euler(rotation.x, rotation.y, wallRunning.tilt);
         rotation.x = Mathf.Clamp(rotation.x, -xRotationLimit, xRotationLimit);
 
     }
