@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (transform.position.y < -6.0)
+        if (collision.gameObject.tag == "death")
         {
+
             Destroy(gameObject);
         }
     }

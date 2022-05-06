@@ -6,8 +6,10 @@ public class EnemyChase1 : MonoBehaviour
 {
     public GameObject player;
     public GameObject spawnGround;
-    float xMax, xMin, zMax, zMin, surface;
+
     Rigidbody m_Rigidbody;
+    bool onGround;
+    //float time = 0;
 
 
     void Start()
@@ -16,26 +18,40 @@ public class EnemyChase1 : MonoBehaviour
         spawnGround = GameObject.FindGameObjectWithTag("spawnGround1");
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Rigidbody.freezeRotation = true;
-        xMax = (spawnGround.transform.position.x + (spawnGround.transform.localScale.x / 2));
-        xMin = (spawnGround.transform.position.x - (spawnGround.transform.localScale.x / 2));
-        zMax = (spawnGround.transform.position.z + (spawnGround.transform.localScale.z / 2));
-        zMin = (spawnGround.transform.position.z - (spawnGround.transform.localScale.z / 2));
-        surface = spawnGround.transform.position.y + (spawnGround.transform.localScale.y / 2);
+        //print(spawnGround.transform.position);
+        
     }
+
     void Update()
     {
-        if (xMin <= transform.position.x && transform.position.x <= xMax && zMin <= transform.position.z && transform.position.z <= zMax)
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), 5 * Time.deltaTime);
+        transform.position += transform.forward * 2 * Time.deltaTime;
+        /*if (onGround==true)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), 5 * Time.deltaTime);      
             transform.position += transform.forward * 2 * Time.deltaTime;
         }
-        else
+        else if (onGround ==false && time>=1)
         {
-
+            
             Vector3 temp = new Vector3(spawnGround.transform.position.x - transform.position.x, transform.position.y, spawnGround.transform.position.z - transform.position.z);
             var back = temp.normalized;
-            m_Rigidbody.AddForce(back, ForceMode.Impulse);
+            m_Rigidbody.AddForce(-(transform.forward), ForceMode.Impulse);
+            time = 0;
         }
-     
+        time += Time.deltaTime;*/
     }
+
+    /*void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "spawnGround1" )
+        {
+            onGround = false;
+            
+        }
+        else
+        {
+            onGround = true;
+        }
+    }*/
 }
