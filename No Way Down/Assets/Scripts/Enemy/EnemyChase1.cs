@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyChase1 : MonoBehaviour
 {
     public GameObject player;
-    public GameObject spawnGround1;
+    public GameObject spawnGround;
     float xMax, xMin, zMax, zMin, surface;
     Rigidbody m_Rigidbody;
 
@@ -13,28 +13,29 @@ public class EnemyChase1 : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        spawnGround1 = GameObject.FindGameObjectWithTag("spawnGround1");
+        spawnGround = GameObject.FindGameObjectWithTag("spawnGround1");
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Rigidbody.freezeRotation = true;
-        xMax = (spawnGround1.transform.position.x + (spawnGround1.transform.localScale.x / 2));
-        xMin = (spawnGround1.transform.position.x - (spawnGround1.transform.localScale.x / 2));
-        zMax = (spawnGround1.transform.position.z + (spawnGround1.transform.localScale.z / 2));
-        zMin = (spawnGround1.transform.position.z - (spawnGround1.transform.localScale.z / 2));
-        surface = spawnGround1.transform.position.y + (spawnGround1.transform.localScale.y / 2);
+        xMax = (spawnGround.transform.position.x + (spawnGround.transform.localScale.x / 2));
+        xMin = (spawnGround.transform.position.x - (spawnGround.transform.localScale.x / 2));
+        zMax = (spawnGround.transform.position.z + (spawnGround.transform.localScale.z / 2));
+        zMin = (spawnGround.transform.position.z - (spawnGround.transform.localScale.z / 2));
+        surface = spawnGround.transform.position.y + (spawnGround.transform.localScale.y / 2);
     }
     void Update()
     {
         if (xMin <= transform.position.x && transform.position.x <= xMax && zMin <= transform.position.z && transform.position.z <= zMax)
         {
-            var direction = (player.transform.position - transform.position).normalized;
-            transform.Translate(direction * Time.deltaTime * 2);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), 5 * Time.deltaTime);      
+            transform.position += transform.forward * 2 * Time.deltaTime;
         }
         else
         {
 
-            Vector3 temp = new Vector3(spawnGround1.transform.position.x - transform.position.x, transform.position.y, spawnGround1.transform.position.z - transform.position.z);
+            Vector3 temp = new Vector3(spawnGround.transform.position.x - transform.position.x, transform.position.y, spawnGround.transform.position.z - transform.position.z);
             var back = temp.normalized;
             m_Rigidbody.AddForce(back, ForceMode.Impulse);
         }
+     
     }
 }
