@@ -7,17 +7,18 @@ public class EnemySpawn : MonoBehaviour
     public GameObject enemyRoot;
     GameObject enemy;
     float time = 0;
-    int maxEnemy = 5;
-    int currentEnemy = 0;
+    //int maxEnemy = 5;
+    //int currentEnemy = 0;
 
     void Update()
     {
-        if (time>5 && currentEnemy < maxEnemy )
+        //if (time>5 && currentEnemy < maxEnemy )
+        if (time > 4)
         {
             enemy = Instantiate(enemyRoot, transform.position, transform.rotation);
             enemy.transform.SetParent(transform);
             time = 0;
-            currentEnemy++;
+            //currentEnemy++;
         }
         time += Time.deltaTime;
     }
