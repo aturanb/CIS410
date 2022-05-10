@@ -16,10 +16,12 @@ public class PlayerMeleeAttack : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             slash.SetBool("Attacking", true);
+            
         }
         else if (Input.GetButtonUp("Fire1"))
         {
             slash.SetBool("Attacking", false);
+            
         }
     }
 }

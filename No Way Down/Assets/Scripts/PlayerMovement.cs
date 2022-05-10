@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform playerOrientation;
     [SerializeField] Transform playerCameraLocation;
     [SerializeField] Camera playerCamera;
+    [SerializeField] GameObject glider;
+    [SerializeField] GameObject handWithWeapon;
 
     [Header("Camera Effects")]
     [SerializeField] private float slidingCameraHeight;
@@ -20,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Ground Movement")]
     [SerializeField] float walkingSpeed = 30f;
     [SerializeField] float slidingSpeed = 55f;
-    [SerializeField] float slidingAcceleration = 20f;
+    //[SerializeField] float slidingAcceleration = 20f;
     [Tooltip("When shift gets pressed, Walking Speed gets multiplied with Sprint Multiplier")]
     [SerializeField] float sprintSpeed = 45f;
     [SerializeField] float sprintAcceleration = 1.5f;
@@ -34,7 +36,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float dragOnAir = 2f;
 
     [Header("Air Gliding Movement")]
+    
     [SerializeField] float glidingDownwardForce = 2f;
+    [SerializeField] float glidingDuration = 4f;
+    float counter = 0f;
 
 
 
@@ -65,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         jumpsLeft = totalJumpAmount;
         currentGroundSpeed = walkingSpeed;
         gliding = false;
+        glider.SetActive(false);
     }
 
     private void Update()
@@ -80,8 +86,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Gliding()
     {
-        if (!onGround && Input.GetKey(KeyCode.F))
+        
+        if (!onGround && Input.GetKey(KeyCode.F) && counter < glidingDuration)
         {
+            handWithWeapon.SetActive(false);
+            glider.SetActive(true);
+            counter += Time.deltaTime;
+            Debug.Log(counter);
+            jumpsLeft = 0;
             m_Rigidbody.useGravity = false;
             gliding = true;
             m_Rigidbody.AddForce(Vector3.down * glidingDownwardForce, ForceMode.Force);
@@ -90,6 +102,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             m_Rigidbody.useGravity = true;
+            glider.SetActive(false);
+            handWithWeapon.SetActive(true);
             gliding = false;
             playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, fov, fovTransitionTime * Time.deltaTime);
         }
@@ -153,6 +167,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "ground" || other.gameObject.tag == "spawnGround1" || other.gameObject.tag == "spawnGround2")
         {
+            counter = 0;
             onGround = true;
             jumpsLeft = totalJumpAmount;
         }
