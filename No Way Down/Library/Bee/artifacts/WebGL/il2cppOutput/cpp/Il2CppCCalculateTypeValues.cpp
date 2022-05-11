@@ -45310,12 +45310,16 @@ struct EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54  : public MonoBeh
 	bool ___attacking_4;
 	// UnityEngine.Animator EnemyAttacked::ani
 	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___ani_5;
+	// UnityEngine.Animator EnemyAttacked::m_ani
+	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___m_ani_6;
 	// UnityEngine.GameObject EnemyAttacked::player
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player_6;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player_7;
 	// UnityEngine.Rigidbody EnemyAttacked::m_Rigidbody
-	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___m_Rigidbody_7;
+	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___m_Rigidbody_8;
 	// UnityEngine.Vector3 EnemyAttacked::direction
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___direction_8;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___direction_9;
+	// System.Int32 EnemyAttacked::death
+	int32_t ___death_10;
 };
 
 // EnemyChase
@@ -45374,6 +45378,8 @@ struct EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE  : public Mono
 	bool ___attacking_10;
 	// UnityEngine.Animator EnemyChaseSingle::ani
 	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___ani_11;
+	// System.Single EnemyChaseSingle::time
+	float ___time_12;
 };
 
 // EnemyDeath
@@ -45639,56 +45645,60 @@ struct PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351  : public MonoBe
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___glider_7;
 	// UnityEngine.GameObject PlayerMovement::handWithWeapon
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___handWithWeapon_8;
+	// UnityEngine.UI.Image PlayerMovement::gliderTimer
+	Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* ___gliderTimer_9;
 	// System.Single PlayerMovement::slidingCameraHeight
-	float ___slidingCameraHeight_9;
+	float ___slidingCameraHeight_10;
 	// System.Single PlayerMovement::fov
-	float ___fov_10;
+	float ___fov_11;
 	// System.Single PlayerMovement::slidingFov
-	float ___slidingFov_11;
+	float ___slidingFov_12;
 	// System.Single PlayerMovement::glidingFov
-	float ___glidingFov_12;
+	float ___glidingFov_13;
 	// System.Single PlayerMovement::fovTransitionTime
-	float ___fovTransitionTime_13;
+	float ___fovTransitionTime_14;
 	// System.Single PlayerMovement::walkingSpeed
-	float ___walkingSpeed_14;
+	float ___walkingSpeed_15;
 	// System.Single PlayerMovement::slidingSpeed
-	float ___slidingSpeed_15;
+	float ___slidingSpeed_16;
 	// System.Single PlayerMovement::sprintSpeed
-	float ___sprintSpeed_16;
+	float ___sprintSpeed_17;
 	// System.Single PlayerMovement::sprintAcceleration
-	float ___sprintAcceleration_17;
+	float ___sprintAcceleration_18;
 	// System.Single PlayerMovement::dragOnGround
-	float ___dragOnGround_18;
+	float ___dragOnGround_19;
 	// System.Int32 PlayerMovement::totalJumpAmount
-	int32_t ___totalJumpAmount_19;
+	int32_t ___totalJumpAmount_20;
 	// System.Single PlayerMovement::speedOnAir
-	float ___speedOnAir_20;
+	float ___speedOnAir_21;
 	// System.Single PlayerMovement::jumpImpulse
-	float ___jumpImpulse_21;
+	float ___jumpImpulse_22;
 	// System.Single PlayerMovement::dragOnAir
-	float ___dragOnAir_22;
+	float ___dragOnAir_23;
 	// System.Single PlayerMovement::glidingDownwardForce
-	float ___glidingDownwardForce_23;
+	float ___glidingDownwardForce_24;
 	// System.Single PlayerMovement::glidingDuration
-	float ___glidingDuration_24;
+	float ___glidingDuration_25;
 	// System.Single PlayerMovement::counter
-	float ___counter_25;
+	float ___counter_26;
 	// System.Int32 PlayerMovement::jumpsLeft
-	int32_t ___jumpsLeft_26;
+	int32_t ___jumpsLeft_27;
 	// System.Single PlayerMovement::currentGroundSpeed
-	float ___currentGroundSpeed_27;
+	float ___currentGroundSpeed_28;
 	// System.Single PlayerMovement::horizontal
-	float ___horizontal_28;
+	float ___horizontal_29;
 	// System.Single PlayerMovement::vertical
-	float ___vertical_29;
+	float ___vertical_30;
 	// System.Boolean PlayerMovement::onGround
-	bool ___onGround_30;
+	bool ___onGround_31;
 	// System.Boolean PlayerMovement::gliding
-	bool ___gliding_31;
+	bool ___gliding_32;
+	// System.Boolean PlayerMovement::gliderSwitch
+	bool ___gliderSwitch_33;
 	// UnityEngine.Vector3 PlayerMovement::m_Movement
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Movement_32;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Movement_34;
 	// UnityEngine.Rigidbody PlayerMovement::m_Rigidbody
-	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___m_Rigidbody_33;
+	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___m_Rigidbody_35;
 };
 
 // UnityEngine.UIElements.PopupWindow

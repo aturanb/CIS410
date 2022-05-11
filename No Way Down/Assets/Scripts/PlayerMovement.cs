@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {    
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Camera playerCamera;
     [SerializeField] GameObject glider;
     [SerializeField] GameObject handWithWeapon;
+    [SerializeField] Image gliderTimer;
 
     [Header("Camera Effects")]
     [SerializeField] private float slidingCameraHeight;
@@ -56,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
     //For checking if the player is on the ground
     bool onGround;
     bool gliding;
+    bool gliderSwitch = false;
 
     //For calculating the Vector3 movement of the player
     Vector3 m_Movement;
@@ -71,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         currentGroundSpeed = walkingSpeed;
         gliding = false;
         glider.SetActive(false);
+        gliderTimer.enabled = false;
     }
 
     private void Update()
@@ -89,10 +93,14 @@ public class PlayerMovement : MonoBehaviour
         
         if (!onGround && Input.GetKey(KeyCode.F) && counter < glidingDuration)
         {
+            if (gliderSwitch == false && m_Rigidbody.velocity.y > 0f)
+                m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_Rigidbody.velocity.y * 0.15f, m_Rigidbody.velocity.z); 
             handWithWeapon.SetActive(false);
             glider.SetActive(true);
+            gliderTimer.enabled = true;
+            gliderSwitch = true;
             counter += Time.deltaTime;
-            Debug.Log(counter);
+            gliderTimer.fillAmount = (glidingDuration - counter) / glidingDuration;
             jumpsLeft = 0;
             m_Rigidbody.useGravity = false;
             gliding = true;
@@ -101,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            gliderTimer.enabled = false;
+            gliderSwitch = false;
             m_Rigidbody.useGravity = true;
             glider.SetActive(false);
             handWithWeapon.SetActive(true);

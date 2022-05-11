@@ -270,6 +270,8 @@ struct Glyph_t700CF8EBE04ED4AEAB520885AAA1B309E02A103F;
 struct Hashtable_tEFC3B6496E6747787D8BB761B51F2AE3A8CFFE2D;
 // System.Collections.IDictionary
 struct IDictionary_t6D03155AF1FA9083817AA5B6AD7DEEACC26AB220;
+// UnityEngine.UI.Image
+struct Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E;
 // UnityEngine.Yoga.Logger
 struct Logger_t092B1218ED93DD47180692D5761559B2054234A0;
 // System.Text.RegularExpressions.Match
@@ -5683,12 +5685,16 @@ struct EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54  : public MonoBeh
 	bool ___attacking_4;
 	// UnityEngine.Animator EnemyAttacked::ani
 	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___ani_5;
+	// UnityEngine.Animator EnemyAttacked::m_ani
+	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___m_ani_6;
 	// UnityEngine.GameObject EnemyAttacked::player
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player_6;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player_7;
 	// UnityEngine.Rigidbody EnemyAttacked::m_Rigidbody
-	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___m_Rigidbody_7;
+	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___m_Rigidbody_8;
 	// UnityEngine.Vector3 EnemyAttacked::direction
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___direction_8;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___direction_9;
+	// System.Int32 EnemyAttacked::death
+	int32_t ___death_10;
 };
 
 // EnemyChase
@@ -5747,6 +5753,8 @@ struct EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE  : public Mono
 	bool ___attacking_10;
 	// UnityEngine.Animator EnemyChaseSingle::ani
 	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ___ani_11;
+	// System.Single EnemyChaseSingle::time
+	float ___time_12;
 };
 
 // EnemySpawn
@@ -5831,56 +5839,60 @@ struct PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351  : public MonoBe
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___glider_7;
 	// UnityEngine.GameObject PlayerMovement::handWithWeapon
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___handWithWeapon_8;
+	// UnityEngine.UI.Image PlayerMovement::gliderTimer
+	Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* ___gliderTimer_9;
 	// System.Single PlayerMovement::slidingCameraHeight
-	float ___slidingCameraHeight_9;
+	float ___slidingCameraHeight_10;
 	// System.Single PlayerMovement::fov
-	float ___fov_10;
+	float ___fov_11;
 	// System.Single PlayerMovement::slidingFov
-	float ___slidingFov_11;
+	float ___slidingFov_12;
 	// System.Single PlayerMovement::glidingFov
-	float ___glidingFov_12;
+	float ___glidingFov_13;
 	// System.Single PlayerMovement::fovTransitionTime
-	float ___fovTransitionTime_13;
+	float ___fovTransitionTime_14;
 	// System.Single PlayerMovement::walkingSpeed
-	float ___walkingSpeed_14;
+	float ___walkingSpeed_15;
 	// System.Single PlayerMovement::slidingSpeed
-	float ___slidingSpeed_15;
+	float ___slidingSpeed_16;
 	// System.Single PlayerMovement::sprintSpeed
-	float ___sprintSpeed_16;
+	float ___sprintSpeed_17;
 	// System.Single PlayerMovement::sprintAcceleration
-	float ___sprintAcceleration_17;
+	float ___sprintAcceleration_18;
 	// System.Single PlayerMovement::dragOnGround
-	float ___dragOnGround_18;
+	float ___dragOnGround_19;
 	// System.Int32 PlayerMovement::totalJumpAmount
-	int32_t ___totalJumpAmount_19;
+	int32_t ___totalJumpAmount_20;
 	// System.Single PlayerMovement::speedOnAir
-	float ___speedOnAir_20;
+	float ___speedOnAir_21;
 	// System.Single PlayerMovement::jumpImpulse
-	float ___jumpImpulse_21;
+	float ___jumpImpulse_22;
 	// System.Single PlayerMovement::dragOnAir
-	float ___dragOnAir_22;
+	float ___dragOnAir_23;
 	// System.Single PlayerMovement::glidingDownwardForce
-	float ___glidingDownwardForce_23;
+	float ___glidingDownwardForce_24;
 	// System.Single PlayerMovement::glidingDuration
-	float ___glidingDuration_24;
+	float ___glidingDuration_25;
 	// System.Single PlayerMovement::counter
-	float ___counter_25;
+	float ___counter_26;
 	// System.Int32 PlayerMovement::jumpsLeft
-	int32_t ___jumpsLeft_26;
+	int32_t ___jumpsLeft_27;
 	// System.Single PlayerMovement::currentGroundSpeed
-	float ___currentGroundSpeed_27;
+	float ___currentGroundSpeed_28;
 	// System.Single PlayerMovement::horizontal
-	float ___horizontal_28;
+	float ___horizontal_29;
 	// System.Single PlayerMovement::vertical
-	float ___vertical_29;
+	float ___vertical_30;
 	// System.Boolean PlayerMovement::onGround
-	bool ___onGround_30;
+	bool ___onGround_31;
 	// System.Boolean PlayerMovement::gliding
-	bool ___gliding_31;
+	bool ___gliding_32;
+	// System.Boolean PlayerMovement::gliderSwitch
+	bool ___gliderSwitch_33;
 	// UnityEngine.Vector3 PlayerMovement::m_Movement
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Movement_32;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Movement_34;
 	// UnityEngine.Rigidbody PlayerMovement::m_Rigidbody
-	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___m_Rigidbody_33;
+	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___m_Rigidbody_35;
 };
 
 // WallRunning
@@ -6676,15 +6688,15 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3329[3] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3330[4] = 
 {
 	static_cast<int32_t>(offsetof(EnemyAttack_tED690DFBE2A094BBB132F9BA59854FD9BAF6CE9B, ___player_4)),static_cast<int32_t>(offsetof(EnemyAttack_tED690DFBE2A094BBB132F9BA59854FD9BAF6CE9B, ___ani_5)),static_cast<int32_t>(offsetof(EnemyAttack_tED690DFBE2A094BBB132F9BA59854FD9BAF6CE9B, ___direction_6)),static_cast<int32_t>(offsetof(EnemyAttack_tED690DFBE2A094BBB132F9BA59854FD9BAF6CE9B, ___p_Rigidbody_7)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3331[5] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3331[7] = 
 {
-	static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___attacking_4)),static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___ani_5)),static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___player_6)),static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___m_Rigidbody_7)),static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___direction_8)),};
+	static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___attacking_4)),static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___ani_5)),static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___m_ani_6)),static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___player_7)),static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___m_Rigidbody_8)),static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___direction_9)),static_cast<int32_t>(offsetof(EnemyAttacked_tC090AAA87264DC9AC11C667316EF0168C3E54D54, ___death_10)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3332[3] = 
 {
 	static_cast<int32_t>(offsetof(EnemyChase_t6CBD3DC0653DE270E9F9654CDEB8D05F630F9468, ___player_4)),static_cast<int32_t>(offsetof(EnemyChase_t6CBD3DC0653DE270E9F9654CDEB8D05F630F9468, ___m_Rigidbody_5)),static_cast<int32_t>(offsetof(EnemyChase_t6CBD3DC0653DE270E9F9654CDEB8D05F630F9468, ___onGround_6)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3333[8] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3333[9] = 
 {
-	static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___player_4)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___range_5)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___m_Rigidbody_6)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___onGround_7)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___crowbar_8)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___stopping_9)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___attacking_10)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___ani_11)),};
+	static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___player_4)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___range_5)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___m_Rigidbody_6)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___onGround_7)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___crowbar_8)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___stopping_9)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___attacking_10)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___ani_11)),static_cast<int32_t>(offsetof(EnemyChaseSingle_t708D38B464435670C687B0F0E5614B1F0EB5D6EE, ___time_12)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3335[3] = 
 {
 	static_cast<int32_t>(offsetof(EnemySpawn_t993A2A1FD1DACABF56807D35C4A9BA5857EA8089, ___enemyRoot_4)),static_cast<int32_t>(offsetof(EnemySpawn_t993A2A1FD1DACABF56807D35C4A9BA5857EA8089, ___enemy_5)),static_cast<int32_t>(offsetof(EnemySpawn_t993A2A1FD1DACABF56807D35C4A9BA5857EA8089, ___time_6)),};
@@ -6703,9 +6715,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3341[1] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3342[7] = 
 {
 	static_cast<int32_t>(offsetof(PlayerMouseRotation_t05A4206927FCD05F544184925DF5B7F5D970814E, ___wallRunning_4)),static_cast<int32_t>(offsetof(PlayerMouseRotation_t05A4206927FCD05F544184925DF5B7F5D970814E, ___cameraHolder_5)),static_cast<int32_t>(offsetof(PlayerMouseRotation_t05A4206927FCD05F544184925DF5B7F5D970814E, ___playerOrientation_6)),static_cast<int32_t>(offsetof(PlayerMouseRotation_t05A4206927FCD05F544184925DF5B7F5D970814E, ___sensitivity_7)),static_cast<int32_t>(offsetof(PlayerMouseRotation_t05A4206927FCD05F544184925DF5B7F5D970814E, ___xRotationLimit_8)),static_cast<int32_t>(offsetof(PlayerMouseRotation_t05A4206927FCD05F544184925DF5B7F5D970814E, ___playerModel_9)),static_cast<int32_t>(offsetof(PlayerMouseRotation_t05A4206927FCD05F544184925DF5B7F5D970814E, ___rotation_10)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3343[30] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3343[32] = 
 {
-	static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___playerOrientation_4)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___playerCameraLocation_5)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___playerCamera_6)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___glider_7)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___handWithWeapon_8)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___slidingCameraHeight_9)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___fov_10)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___slidingFov_11)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___glidingFov_12)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___fovTransitionTime_13)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___walkingSpeed_14)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___slidingSpeed_15)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___sprintSpeed_16)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___sprintAcceleration_17)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___dragOnGround_18)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___totalJumpAmount_19)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___speedOnAir_20)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___jumpImpulse_21)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___dragOnAir_22)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___glidingDownwardForce_23)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___glidingDuration_24)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___counter_25)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___jumpsLeft_26)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___currentGroundSpeed_27)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___horizontal_28)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___vertical_29)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___onGround_30)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___gliding_31)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___m_Movement_32)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___m_Rigidbody_33)),};
+	static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___playerOrientation_4)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___playerCameraLocation_5)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___playerCamera_6)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___glider_7)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___handWithWeapon_8)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___gliderTimer_9)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___slidingCameraHeight_10)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___fov_11)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___slidingFov_12)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___glidingFov_13)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___fovTransitionTime_14)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___walkingSpeed_15)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___slidingSpeed_16)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___sprintSpeed_17)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___sprintAcceleration_18)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___dragOnGround_19)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___totalJumpAmount_20)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___speedOnAir_21)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___jumpImpulse_22)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___dragOnAir_23)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___glidingDownwardForce_24)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___glidingDuration_25)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___counter_26)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___jumpsLeft_27)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___currentGroundSpeed_28)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___horizontal_29)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___vertical_30)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___onGround_31)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___gliding_32)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___gliderSwitch_33)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___m_Movement_34)),static_cast<int32_t>(offsetof(PlayerMovement_t4A0A0A8C937BC1D4FC570D1B5B50847338423351, ___m_Rigidbody_35)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3344[4] = 
 {
 	static_cast<int32_t>(offsetof(EnemyChase1_tAB7800B744868CED58C20BDF7DD68932068F2219, ___player_4)),static_cast<int32_t>(offsetof(EnemyChase1_tAB7800B744868CED58C20BDF7DD68932068F2219, ___spawnGround_5)),static_cast<int32_t>(offsetof(EnemyChase1_tAB7800B744868CED58C20BDF7DD68932068F2219, ___m_Rigidbody_6)),static_cast<int32_t>(offsetof(EnemyChase1_tAB7800B744868CED58C20BDF7DD68932068F2219, ___onGround_7)),};
