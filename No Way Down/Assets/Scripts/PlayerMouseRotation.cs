@@ -25,9 +25,12 @@ public class PlayerMouseRotation : MonoBehaviour
 
     void Update()
     {
-        ProcessMouseInput();
-        AdjustCameraRotation();
-        AdjustModelRotation();
+        if (PauseMenu.GameIsPaused == false)
+        {
+            ProcessMouseInput();
+            AdjustCameraRotation();
+            AdjustModelRotation();
+        }
     }
 
     //Hides and locks the cursor
