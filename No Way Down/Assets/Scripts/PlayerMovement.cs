@@ -37,12 +37,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpImpulse = 5f;
     [SerializeField] float dragOnAir = 2f;
 
-    [Header("Air Gliding Movement")]
-    
+    [Header("Air Gliding Movement")]    
     [SerializeField] float glidingDownwardForce = 2f;
     [SerializeField] float glidingDuration = 4f;
     float counter = 0f;
 
+    [Header("For Tutorial")]
+    [SerializeField] bool canGlide;
+    [SerializeField] public bool canWallRun;
 
 
 
@@ -63,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     //For calculating the Vector3 movement of the player
     Vector3 m_Movement;
     
-    public Rigidbody m_Rigidbody;
+    [NonSerialized] public Rigidbody m_Rigidbody;
     
 
     private void Start()
@@ -81,7 +83,8 @@ public class PlayerMovement : MonoBehaviour
     {
         DragControl();
         SetGroundSpeed();
-        Gliding();
+        if(canGlide)
+            Gliding();
         //Sliding(); INPROGRESS
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft!=0)
             Jump();

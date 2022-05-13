@@ -43,7 +43,7 @@ public class WallRunning : MonoBehaviour
     void Update()
     {
         IsThereWall();
-        if (AbleToWallRun())
+        if (AbleToWallRun() && playerMovementScript.canWallRun)
         {
             if (wallLeft)
             {
