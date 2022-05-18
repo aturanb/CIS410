@@ -9,6 +9,8 @@ public class EnemyAttack : MonoBehaviour
     private Animator ani;
     Vector3 direction;
     Rigidbody p_Rigidbody;
+    float triTime = 0;
+    bool alive = true;
 
     void Start()
     {
@@ -25,33 +27,24 @@ public class EnemyAttack : MonoBehaviour
         direction.z = direction.z * (0.7f);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == player)
-        {
-            ani.SetBool("Attack", true);
-            p_Rigidbody.AddForce(direction, ForceMode.Impulse);
-            p_Rigidbody.AddForce((Vector3.up) * 0.5f, ForceMode.Impulse);
-        }
-    }
-
     void OnTriggerStay(Collider other)
     {
+        triTime -= Time.fixedDeltaTime;
         if (other.gameObject == player)
         {
-            ani.SetBool("Attack", true);
-            p_Rigidbody.AddForce(direction, ForceMode.Impulse);
-            p_Rigidbody.AddForce((Vector3.up) * 0.5f, ForceMode.Impulse);
+            if (triTime <= 0 && alive==true)
+            {
+                ani.SetBool("Attack", true);
+                p_Rigidbody.AddForce(direction*10f, ForceMode.Impulse);
+                p_Rigidbody.AddForce((Vector3.up) * 4f, ForceMode.Impulse);
+                triTime = 1f;
+            }
         }
     }
 
-    void OnTriggerExit(Collider other)
+    public void stopAttack()
     {
-        if (other.gameObject == player)
-        {
-            ani.SetBool("Attack", true);
-            p_Rigidbody.AddForce(direction, ForceMode.Impulse);
-            p_Rigidbody.AddForce((Vector3.up) * 0.5f, ForceMode.Impulse);
-        }
+        alive = false;
     }
+
 }

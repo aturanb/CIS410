@@ -15,6 +15,7 @@ public class EnemyChaseSingle : MonoBehaviour
     bool attacking;
     private Animator ani;
     float time = 0;
+    bool chase = true;
 
     void Start()
     {
@@ -27,18 +28,22 @@ public class EnemyChaseSingle : MonoBehaviour
 
     void Update()
     {
-        attacking = ani.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Armature|Crowbar -hit3");
-        if (Vector3.Distance(player.transform.position, transform.position) <= range && stopping==false)
+        if (chase == true)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), 5 * Time.deltaTime);
-            transform.position += transform.forward * 2 * Time.deltaTime;
-            
-        }else if (stopping == true && time >= 0.5f)
-        {
-            stopping = false;
-            time = 0;
-        }
-        time += Time.deltaTime;
+            attacking = ani.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Armature|Crowbar -hit3");
+            if (Vector3.Distance(player.transform.position, transform.position) <= range && stopping == false)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), 5 * Time.deltaTime);
+                transform.position += transform.forward * 2 * Time.deltaTime;
+
+            }
+            else if (stopping == true && time >= 0.5f)
+            {
+                stopping = false;
+                time = 0;
+            }
+            time += Time.deltaTime;
+        }  
     }
 
     void OnTriggerEnter(Collider collider)
@@ -63,5 +68,10 @@ public class EnemyChaseSingle : MonoBehaviour
         {
             stopping = true;
         }
+    }
+
+    public void stopChase()
+    {
+        chase = false;
     }
 }
