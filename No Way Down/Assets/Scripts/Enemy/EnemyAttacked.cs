@@ -17,6 +17,7 @@ public class EnemyAttacked : MonoBehaviour
     int death;
     float triTime = 0f;
     bool alive = true;
+    float destroyTime = 3f;
 
 
     void Start()
@@ -32,15 +33,24 @@ public class EnemyAttacked : MonoBehaviour
     {
         if (death >= 3 && alive == true)
         {
+
             alive = false;
             ea.stopAttack();
             ecs.stopChase();
             m_ani.SetTrigger("Dead");
-            zombie.Rotate(45, 0, 0);
+            //zombie.Rotate(45, 0, 0);
             //gameObject.transform.parent.GetComponent<scriptName>().enabled = true / false;
             //this.transform.parent.gameObject.SetActive(false);
 
             //Destroy(this.transform.parent.gameObject);
+        }
+        if (alive == false)
+        {
+            destroyTime -= Time.fixedDeltaTime;
+            if (destroyTime <= 0)
+            {
+                Destroy(this.transform.parent.gameObject);
+            }
         }
         direction = new Vector3((player.transform.position.x - transform.position.x), 0, (player.transform.position.z - transform.position.z));
         direction = direction.normalized;

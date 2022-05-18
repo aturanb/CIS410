@@ -33,7 +33,9 @@ public class EnemyChaseSingle : MonoBehaviour
             attacking = ani.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Armature|Crowbar -hit3");
             if (Vector3.Distance(player.transform.position, transform.position) <= range && stopping == false)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), 5 * Time.deltaTime);
+                Vector3 temp = player.transform.position - transform.position;
+                temp.y = 0;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(temp), 5 * Time.deltaTime);
                 transform.position += transform.forward * 2 * Time.deltaTime;
 
             }
