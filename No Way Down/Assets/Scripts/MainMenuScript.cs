@@ -7,7 +7,7 @@ public class MainMenuScript : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(2);
     }
 
     public void QuitGame()
@@ -15,9 +15,9 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
     }
 
-    public void GoToSettingMenu()
+    public void GoToTutorial()
     {
-        SceneManager.LoadScene("SettingsMenu()");
+        SceneManager.LoadScene(1);
     }
 
     public void GoToMainMenu()

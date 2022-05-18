@@ -34,6 +34,8 @@ public class EndingGame : MonoBehaviour
         if (next)
         {
             winTextObject.SetActive(true);
+            if(Input.GetKey(KeyCode.Escape))
+                SceneManager.LoadScene(0);
         }
         /*else
         {
