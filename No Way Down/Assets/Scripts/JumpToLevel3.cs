@@ -27,7 +27,7 @@ public class JumpToLevel3 : MonoBehaviour
     {
         if (next)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(4);
         }
         /*else
         {
