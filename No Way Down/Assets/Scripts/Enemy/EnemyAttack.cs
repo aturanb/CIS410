@@ -37,7 +37,7 @@ public class EnemyAttack : MonoBehaviour
                 ani.SetBool("Attack", true);
                 p_Rigidbody.AddForce(direction*10f, ForceMode.Impulse);
                 p_Rigidbody.AddForce((Vector3.up) * 4f, ForceMode.Impulse);
-                triTime = 1f;
+                triTime = 3f;
             }
         }
     }
