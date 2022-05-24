@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyChaseSingle : MonoBehaviour
 {
     public GameObject player;
-    [Header("Chase Range")]
+    [Header("Chase")]
     [SerializeField] float range;
+    [SerializeField] float speed;
     Rigidbody m_Rigidbody;
     bool onGround;
 
@@ -36,7 +37,7 @@ public class EnemyChaseSingle : MonoBehaviour
                 Vector3 temp = player.transform.position - transform.position;
                 temp.y = 0;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(temp), 5 * Time.deltaTime);
-                transform.position += transform.forward * 2 * Time.deltaTime;
+                transform.position += transform.forward * speed * Time.deltaTime;
 
             }
             else if (stopping == true && time >= 0.5f)

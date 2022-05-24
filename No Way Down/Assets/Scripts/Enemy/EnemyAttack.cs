@@ -11,6 +11,10 @@ public class EnemyAttack : MonoBehaviour
     Rigidbody p_Rigidbody;
     float triTime = 0;
     bool alive = true;
+    [Header("Attack")]
+    [SerializeField] int Horizontal;
+    [SerializeField] int Up;
+    [SerializeField] float freAtLeast2P5;
 
     void Start()
     {
@@ -35,9 +39,9 @@ public class EnemyAttack : MonoBehaviour
             if (triTime <= 0 && alive==true)
             {
                 ani.SetBool("Attack", true);
-                p_Rigidbody.AddForce(direction*10f, ForceMode.Impulse);
-                p_Rigidbody.AddForce((Vector3.up) * 4f, ForceMode.Impulse);
-                triTime = 3f;
+                p_Rigidbody.AddForce(direction* Horizontal, ForceMode.Impulse);
+                p_Rigidbody.AddForce((Vector3.up) * Up, ForceMode.Impulse);
+                triTime = freAtLeast2P5;
             }
         }
     }

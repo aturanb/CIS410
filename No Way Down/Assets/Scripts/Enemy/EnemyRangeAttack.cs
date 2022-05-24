@@ -38,6 +38,7 @@ public class EnemyRangeAttack : MonoBehaviour
                 ani.SetBool("Attack", true);
                 GameObject P = Instantiate(Projectile, LaunchPosition.position, LaunchPosition.rotation) as GameObject;
                 P.GetComponent<Rigidbody>().velocity = direction * speed;
+                Destroy(P, 5);
                 triTime = 5f;
             }
         }

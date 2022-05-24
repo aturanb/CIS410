@@ -11,13 +11,17 @@ public class EnemyAttacked : MonoBehaviour
     public GameObject player;
     public EnemyChaseSingle ecs;
     public EnemyAttack ea;
-    public Transform zombie;
+    
     Rigidbody m_Rigidbody;
     Vector3 direction;
     int death;
     float triTime = 0f;
     bool alive = true;
     float destroyTime = 3f;
+    float cos, angle;
+
+    [Header("Death")]
+    [SerializeField] int attacted;
 
 
     void Start()
@@ -31,6 +35,10 @@ public class EnemyAttacked : MonoBehaviour
     
     void Update()
     {
+        Vector3 playerDirection = player.transform.TransformDirection(Vector3.forward);
+        Vector3 zombiePosition = transform.position - player.transform.position;
+        cos = Vector3.Dot(playerDirection, zombiePosition);
+        angle = Mathf.Acos(Vector3.Dot(playerDirection.normalized, zombiePosition.normalized)) * Mathf.Rad2Deg;
         if (death >= 3 && alive == true)
         {
 
@@ -64,7 +72,7 @@ public class EnemyAttacked : MonoBehaviour
         triTime -= Time.fixedDeltaTime;
         if (attacking == true)
         { 
-            if (triTime <= 0&& alive==true)
+            if (triTime <= 0 && alive == true && cos > 0 && angle < 60 && Vector3.Distance(player.transform.position, transform.position) <= 3)
             {
                 death++;
                 m_Rigidbody.AddForce(direction * 6f, ForceMode.Impulse);
