@@ -39,7 +39,7 @@ public class EnemyAttacked : MonoBehaviour
         Vector3 zombiePosition = transform.position - player.transform.position;
         cos = Vector3.Dot(playerDirection, zombiePosition);
         angle = Mathf.Acos(Vector3.Dot(playerDirection.normalized, zombiePosition.normalized)) * Mathf.Rad2Deg;
-        if (death >= 3 && alive == true)
+        if (death >= attacted && alive == true)
         {
 
             alive = false;

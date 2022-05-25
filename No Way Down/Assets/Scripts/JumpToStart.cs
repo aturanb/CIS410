@@ -7,6 +7,8 @@ public class JumpToStart : MonoBehaviour
 {
     public GameObject player;
     bool NextLevel = false;
+    public static float timeScale { get; set; }
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == player)
@@ -27,6 +29,8 @@ public class JumpToStart : MonoBehaviour
     {
         if (next)
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene(0);
         }
         /*else
