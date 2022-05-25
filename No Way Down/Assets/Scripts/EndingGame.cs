@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class EndingGame : MonoBehaviour
 {
@@ -10,11 +11,15 @@ public class EndingGame : MonoBehaviour
     public GameObject winTextObject;
     public static float timeScale { get; set; }
     bool Ending = false;
-    float EndDelay = 3f;
+    float EndDelay = 7f;
+    public TextMeshProUGUI TimeCostText;
+    public Timer timer;
+    public GameObject TimeCost;
 
     void Start()
     {
         winTextObject.SetActive(false);
+        TimeCost.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -49,6 +54,8 @@ public class EndingGame : MonoBehaviour
     {
         if (next)
         {
+            TimeCostText.text = "Time Cost: " + timer.getTime().ToString() + "s";
+            TimeCost.SetActive(true);
             winTextObject.SetActive(true);
             Time.timeScale = 0;
             Ending = true;
