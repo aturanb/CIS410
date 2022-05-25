@@ -29,7 +29,7 @@ public class EnemyRangeAttack : MonoBehaviour
     {
         direction = player.transform.position - transform.position;
         direction = direction.normalized;
-        direction.y = direction.y - 0.15f;
+        direction.y = direction.y - 0.07f;
         triTime -= Time.fixedDeltaTime;
         if (Vector3.Distance(player.transform.position, transform.position) <= range)
         {
@@ -39,7 +39,7 @@ public class EnemyRangeAttack : MonoBehaviour
                 GameObject P = Instantiate(Projectile, LaunchPosition.position, LaunchPosition.rotation) as GameObject;
                 P.GetComponent<Rigidbody>().velocity = direction * speed;
                 Destroy(P, 5);
-                triTime = 15f;
+                triTime = 7f;
             }
         }
     }
