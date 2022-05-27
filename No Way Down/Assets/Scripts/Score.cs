@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Score : MonoBehaviour
 {
     int score = 0;
-
+    public TextMeshProUGUI SScoreText;
     void Update()
     {
-        print(checkScore());
+        SScoreText.text = "Score:\n" + score.ToString();
     }
 
     public void getScore(int type)

@@ -11,15 +11,19 @@ public class EndingGame : MonoBehaviour
     public GameObject winTextObject;
     public static float timeScale { get; set; }
     bool Ending = false;
-    float EndDelay = 7f;
+    float EndDelay = 5f;
     public TextMeshProUGUI TimeCostText;
+    public TextMeshProUGUI ScoreText;
+    public Score score;
     public Timer timer;
     public GameObject TimeCost;
+    public GameObject GBScore;
 
     void Start()
     {
         winTextObject.SetActive(false);
         TimeCost.SetActive(false);
+        GBScore.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -56,6 +60,16 @@ public class EndingGame : MonoBehaviour
         {
             TimeCostText.text = "Time Cost: " + timer.getTime().ToString() + "s";
             TimeCost.SetActive(true);
+            if (timer.getTime() >= 300)
+            {
+                ScoreText.text = "Score: " + score.checkScore();
+            }
+            else
+            {
+                int temp = score.checkScore() + (300 - timer.getTime()) * 10;
+                ScoreText.text = "Score: " + temp;
+            }
+            GBScore.SetActive(true);
             winTextObject.SetActive(true);
             Time.timeScale = 0;
             Ending = true;
