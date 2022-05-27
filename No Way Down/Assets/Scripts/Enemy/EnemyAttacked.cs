@@ -11,7 +11,8 @@ public class EnemyAttacked : MonoBehaviour
     public GameObject player;
     public EnemyChaseSingle ecs;
     public EnemyAttack ea;
-    
+    public Score score;
+
     Rigidbody m_Rigidbody;
     Vector3 direction;
     int death;
@@ -22,6 +23,9 @@ public class EnemyAttacked : MonoBehaviour
 
     [Header("Death")]
     [SerializeField] int attacted;
+
+    [Header("Score Type")]
+    [SerializeField] int sType;
 
 
     void Start()
@@ -45,12 +49,8 @@ public class EnemyAttacked : MonoBehaviour
             alive = false;
             ea.stopAttack();
             ecs.stopChase();
+            score.getScore(sType);
             m_ani.SetTrigger("Dead");
-            //zombie.Rotate(45, 0, 0);
-            //gameObject.transform.parent.GetComponent<scriptName>().enabled = true / false;
-            //this.transform.parent.gameObject.SetActive(false);
-
-            //Destroy(this.transform.parent.gameObject);
         }
         if (alive == false)
         {

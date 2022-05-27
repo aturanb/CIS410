@@ -11,7 +11,7 @@ public class EnemyAttackedRange : MonoBehaviour
     public GameObject player;
     public EnemyFaceSingle efs;
     public EnemyRangeAttack era;
-    //public Transform zombie;
+    public Score score;
     Rigidbody m_Rigidbody;
     Vector3 direction;
     int death=0;
@@ -40,6 +40,7 @@ public class EnemyAttackedRange : MonoBehaviour
             alive = false;
             era.stopAttack();
             efs.stopFace();
+            score.getScore(2);
             m_ani.SetTrigger("Dead");
             //zombie.Rotate(45, 0, 0);
             //gameObject.transform.parent.GetComponent<scriptName>().enabled = true / false;
