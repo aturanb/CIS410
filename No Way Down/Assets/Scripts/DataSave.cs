@@ -30,12 +30,4 @@ public class DataSave : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void Update()
-    {
-        print(L3Time);
-        print(L3Score);
-    }
-
-
 }
