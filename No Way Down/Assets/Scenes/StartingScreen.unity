@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 157654489}
   m_Layer: 5
   m_Name: L2S
-  m_TagString: Untagged
+  m_TagString: L2S
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 419240340}
   m_Layer: 5
   m_Name: L1S
-  m_TagString: Untagged
+  m_TagString: L1S
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -958,20 +958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04625061777445b47a247633c9671aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  L2: 0
-  L3: 0
-  L1Time: -1
-  L1Score: -1
-  L2Time: -1
-  L2Score: -1
-  L3Time: -1
-  L3Score: -1
-  L1TimeText: {fileID: 2041328270}
-  L1ScoreText: {fileID: 419240340}
-  L2TimeText: {fileID: 1985601613}
-  L2ScoreText: {fileID: 157654489}
-  L3TimeText: {fileID: 1664106507}
-  L3ScoreText: {fileID: 1885590849}
 --- !u!1 &815639044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,7 +2464,7 @@ GameObject:
   - component: {fileID: 1664106507}
   m_Layer: 5
   m_Name: L3T
-  m_TagString: Untagged
+  m_TagString: L3T
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2748,7 +2734,7 @@ GameObject:
   - component: {fileID: 1885590849}
   m_Layer: 5
   m_Name: L3S
-  m_TagString: Untagged
+  m_TagString: L3S
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3018,7 +3004,7 @@ GameObject:
   - component: {fileID: 1985601613}
   m_Layer: 5
   m_Name: L2T
-  m_TagString: Untagged
+  m_TagString: L2T
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3153,7 +3139,7 @@ GameObject:
   - component: {fileID: 2041328270}
   m_Layer: 5
   m_Name: L1T
-  m_TagString: Untagged
+  m_TagString: L1T
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3275,3 +3261,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041328268}
   m_CullTransparentMesh: 1
+--- !u!1 &2121583481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2121583482}
+  - component: {fileID: 2121583483}
+  m_Layer: 0
+  m_Name: recordDisplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2121583482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121583481}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 378.43283, y: 209.75237, z: 18901.059}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2121583483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121583481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3748bca12b80f4d4cb69b49e7f1b3815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  L1TimeText: {fileID: 2041328270}
+  L1ScoreText: {fileID: 419240340}
+  L2TimeText: {fileID: 1985601613}
+  L2ScoreText: {fileID: 157654489}
+  L3TimeText: {fileID: 1664106507}
+  L3ScoreText: {fileID: 1885590849}
+  L1Time: 0
+  L1Score: 0
+  L2Time: 0
+  L2Score: 0
+  L3Time: 0
+  L3Score: 0
+  L2: 0
+  L3: 0
+  dataSave: {fileID: 0}
+  L1NA: 0
+  L2NA: 0
+  L3NA: 0

@@ -64,6 +64,7 @@ public class EndingGame : MonoBehaviour
     {
         if (next)
         {
+            dataSave.GetComponent<DataSave>().L3NA = false;
             int temp = score.checkScore() + (300 - timer.getTime()) * 10;
             TimeCostText.text = "Time Cost: " + timer.getTime().ToString() + "s";
             TimeCost.SetActive(true);
@@ -77,7 +78,7 @@ public class EndingGame : MonoBehaviour
                 ScoreText.text = "Score: " + temp;
             }
             GBScore.SetActive(true);
-            if (dataSave.GetComponent<DataSave>().L3Time < timer.getTime())
+            if (dataSave.GetComponent<DataSave>().L3Time > timer.getTime())
             {
                 dataSave.GetComponent<DataSave>().L3Time = timer.getTime();
             }

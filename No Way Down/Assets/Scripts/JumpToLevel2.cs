@@ -60,6 +60,8 @@ public class JumpToLevel2 : MonoBehaviour
     {
         if (next)
         {
+            dataSave.GetComponent<DataSave>().L2 = true;
+            dataSave.GetComponent<DataSave>().L1NA = false;
             int temp = score.checkScore() + (300 - timer.getTime()) * 10;
             TimeCostText.text = "Time Cost: "+timer.getTime().ToString()+"s";
             TimeCost.SetActive(true);
@@ -71,7 +73,7 @@ public class JumpToLevel2 : MonoBehaviour
                 ScoreText.text = "Score: " + temp;
             }
             GBScore.SetActive(true);
-            if (dataSave.GetComponent<DataSave>().L1Time< timer.getTime())
+            if (dataSave.GetComponent<DataSave>().L1Time> timer.getTime())
             {
                 dataSave.GetComponent<DataSave>().L1Time = timer.getTime();
             }
@@ -81,7 +83,7 @@ public class JumpToLevel2 : MonoBehaviour
             }
             StopTimeText.SetActive(false);
             StopScoreText.SetActive(false);
-            dataSave.GetComponent<DataSave>().L2 = true;
+            
             Time.timeScale = 0;
             Ending = true;
         }
