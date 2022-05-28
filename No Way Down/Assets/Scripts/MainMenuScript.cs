@@ -5,9 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public void PlayGame()
+    public void L1()
     {
+        
         SceneManager.LoadScene(2);
+    }
+
+    public void L2()
+    {
+        
+        SceneManager.LoadScene(3);
+    }
+
+    public void L3()
+    {
+       
+        SceneManager.LoadScene(4);
     }
 
     public void QuitGame()
@@ -24,4 +37,6 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu()");
     }
+
+
 }

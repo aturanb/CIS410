@@ -17,12 +17,18 @@ public class JumpToLevel3 : MonoBehaviour
     public GameObject TimeCost;
     public GameObject GBScore;
 
+    public GameObject StopTimeText;
+    public GameObject StopScoreText;
+
+    public GameObject dataSave;
+
     public static float timeScale { get; set; }
 
     void Start()
     {
         TimeCost.SetActive(false);
         GBScore.SetActive(false);
+        dataSave = GameObject.FindGameObjectWithTag("Data");
     }
 
     void OnTriggerEnter(Collider other)
@@ -54,6 +60,7 @@ public class JumpToLevel3 : MonoBehaviour
     {
         if (next)
         {
+            int temp = score.checkScore() + (300 - timer.getTime()) * 10;
             TimeCostText.text = "Time Cost: " + timer.getTime().ToString() + "s";
             TimeCost.SetActive(true);
             if (timer.getTime() >= 300)
@@ -62,10 +69,21 @@ public class JumpToLevel3 : MonoBehaviour
             }
             else
             {
-                int temp = score.checkScore() + (300 - timer.getTime()) * 10;
+                
                 ScoreText.text = "Score: " + temp;
             }
             GBScore.SetActive(true);
+            if (dataSave.GetComponent<DataSave>().L2Time < timer.getTime())
+            {
+                dataSave.GetComponent<DataSave>().L2Time = timer.getTime();
+            }
+            if (dataSave.GetComponent<DataSave>().L2Score < temp)
+            {
+                dataSave.GetComponent<DataSave>().L2Score = temp;
+            }
+            dataSave.GetComponent<DataSave>().L3 = true;
+            StopTimeText.SetActive(false);
+            StopScoreText.SetActive(false);
             Time.timeScale = 0;
             Ending = true;
 

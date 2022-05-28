@@ -32,7 +32,10 @@ public class Score : MonoBehaviour
         }
     }
 
-
+    public void addTimeScore(int time)
+    {
+        score= score+(300 - time) * 10;
+    }
 
     public int checkScore()
     {

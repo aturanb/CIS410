@@ -19,11 +19,17 @@ public class EndingGame : MonoBehaviour
     public GameObject TimeCost;
     public GameObject GBScore;
 
+    public GameObject StopTimeText;
+    public GameObject StopScoreText;
+
+    public GameObject dataSave;
+
     void Start()
     {
         winTextObject.SetActive(false);
         TimeCost.SetActive(false);
         GBScore.SetActive(false);
+        dataSave = GameObject.FindGameObjectWithTag("Data");
     }
 
     void OnTriggerEnter(Collider other)
@@ -58,6 +64,7 @@ public class EndingGame : MonoBehaviour
     {
         if (next)
         {
+            int temp = score.checkScore() + (300 - timer.getTime()) * 10;
             TimeCostText.text = "Time Cost: " + timer.getTime().ToString() + "s";
             TimeCost.SetActive(true);
             if (timer.getTime() >= 300)
@@ -66,10 +73,20 @@ public class EndingGame : MonoBehaviour
             }
             else
             {
-                int temp = score.checkScore() + (300 - timer.getTime()) * 10;
+                
                 ScoreText.text = "Score: " + temp;
             }
             GBScore.SetActive(true);
+            if (dataSave.GetComponent<DataSave>().L3Time < timer.getTime())
+            {
+                dataSave.GetComponent<DataSave>().L3Time = timer.getTime();
+            }
+            if (dataSave.GetComponent<DataSave>().L3Score < temp)
+            {
+                dataSave.GetComponent<DataSave>().L3Score = temp;
+            }
+            StopTimeText.SetActive(false);
+            StopScoreText.SetActive(false);
             winTextObject.SetActive(true);
             Time.timeScale = 0;
             Ending = true;
