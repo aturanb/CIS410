@@ -11,6 +11,14 @@ public class recordDisplay : MonoBehaviour
     public TextMeshProUGUI L2ScoreText;
     public TextMeshProUGUI L3TimeText;
     public TextMeshProUGUI L3ScoreText;
+
+
+    public GameObject L2TimeGB;
+    public GameObject L2ScoreGB;
+    public GameObject L3TimeGB;
+    public GameObject L3ScoreGB;
+    public GameObject L2Button;
+    public GameObject L3Button;
     public int L1Time ;
     public int L1Score;
     public int L2Time;
@@ -53,25 +61,49 @@ public class recordDisplay : MonoBehaviour
             L1TimeText.text = L1Time.ToString()+"s";
             L1ScoreText.text = L1Score.ToString();
         }
-        if (L2NA==true)
+        if (L2 == true)
         {
-            L2TimeText.text = "N/A";
-            L2ScoreText.text = "N/A";
+            L2TimeGB.SetActive(true);
+            L2ScoreGB.SetActive(true);
+            L2Button.SetActive(true);
+            if (L2NA == true)
+            {
+                L2TimeText.text = "N/A";
+                L2ScoreText.text = "N/A";
+            }
+            else
+            {
+                L2TimeText.text = L2Time.ToString() + "s";
+                L2ScoreText.text = L2Score.ToString();
+            }
         }
         else
         {
-            L2TimeText.text = L2Time.ToString() + "s";
-            L2ScoreText.text = L2Score.ToString();
+            L2TimeGB.SetActive(false);
+            L2ScoreGB.SetActive(false);
+            L2Button.SetActive(false);
         }
-        if (L3NA==true)
+        if (L3 == true)
         {
-            L3TimeText.text = "N/A";
-            L3ScoreText.text = "N/A";
+            L3TimeGB.SetActive(true);
+            L3ScoreGB.SetActive(true);
+            L3Button.SetActive(true);
+            if (L3NA == true)
+            {
+                L3TimeText.text = "N/A";
+                L3ScoreText.text = "N/A";
+            }
+            else
+            {
+                L3TimeText.text = L3Time.ToString() + "s";
+                L3ScoreText.text = L3Score.ToString();
+            }
         }
         else
         {
-            L3TimeText.text = L3Time.ToString() + "s";
-            L3ScoreText.text = L3Score.ToString();
+            L3TimeGB.SetActive(false);
+            L3ScoreGB.SetActive(false);
+            L3Button.SetActive(false);
         }
     }
 }
