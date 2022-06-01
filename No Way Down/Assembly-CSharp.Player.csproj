@@ -62,22 +62,28 @@
     <Compile Include="Assets\Scripts\WallRunning.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Third Party Assets\Supercyan Character Pack Zombie Sample\Scripts\ZombieFree.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
+    <Compile Include="Assets\Scripts\JumpToStart.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAttacked.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyChaseSingle.cs" />
     <Compile Include="Assets\Third Party Assets\Supercyan Character Pack Zombie Sample\Scripts\ZombieCameraLogic.cs" />
     <Compile Include="Assets\Scripts\PlayerDeath.cs" />
     <Compile Include="Assets\Third Party Assets\Supercyan Character Pack Zombie Sample\Scripts\ZombieCharacterControl.cs" />
-    <Compile Include="Assets\Scripts\save\EnemyChase2.cs" />
+    <Compile Include="Assets\Scripts\Enemy\ProjectileEffect.cs" />
     <Compile Include="Assets\Scripts\EndingGame.cs" />
     <Compile Include="Assets\Scripts\MainMenuScript.cs" />
+    <Compile Include="Assets\Scripts\PickUp.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\save\EnemyChase1.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyRangeAttack.cs" />
     <Compile Include="Assets\Scripts\PlayerMouseRotation.cs" />
+    <Compile Include="Assets\Scripts\DataSave.cs" />
     <Compile Include="Assets\Scripts\JumpToLevel3.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyChase.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
+    <Compile Include="Assets\Scripts\recordDisplay.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyFaceSingle.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyDeath.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyAttackedRange.cs" />
     <Compile Include="Assets\Third Party Assets\amusedART\Mushroom_Monster\Script\MushroomMon_Ani_Test.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,8 +91,10 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Third Party Assets\Supercyan Character Pack Zombie Sample\Shaders\Legacy\CelShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Third Party Assets\FREE Food Pack\Shaders\Food.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Third Party Assets\Supercyan Character Pack Zombie Sample\Shaders\SupercyanShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />

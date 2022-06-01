@@ -22,7 +22,8 @@ public class Timer : MonoBehaviour
                 display += 1;
                 sec = 0;
             }
-            TimerText.text = "Timer:\n" + display.ToString() + "s";
+            TimerText.text = display.ToString() + "s";
+            // "Timer:\n" +
         }
     }
 

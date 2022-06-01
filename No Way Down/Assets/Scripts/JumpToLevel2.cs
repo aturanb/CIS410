@@ -62,10 +62,10 @@ public class JumpToLevel2 : MonoBehaviour
         {
             dataSave.GetComponent<DataSave>().L2 = true;
             dataSave.GetComponent<DataSave>().L1NA = false;
-            int temp = score.checkScore() + (300 - timer.getTime()) * 10;
-            TimeCostText.text = "Time Cost: "+timer.getTime().ToString()+"s";
+            int temp = score.checkScore() + (100 - timer.getTime()) * 10;
+            TimeCostText.text = "Total Time: "+timer.getTime().ToString()+"s";
             TimeCost.SetActive(true);
-            if (timer.getTime() >= 300)
+            if (timer.getTime() >= 100)
             {
                 ScoreText.text = "Score: " + score.checkScore();
             }else

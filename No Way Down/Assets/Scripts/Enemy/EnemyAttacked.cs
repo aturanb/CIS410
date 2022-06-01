@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyAttacked : MonoBehaviour
 {
     bool attacking;
+    public ParticleSystem bloodFx;
     private Animator ani;
     private Animator m_ani;
     public GameObject player;
@@ -30,6 +31,7 @@ public class EnemyAttacked : MonoBehaviour
 
     void Start()
     {
+        bloodFx.Pause();
         player = GameObject.FindGameObjectWithTag("Hand with Crowbar");
         ani = player.GetComponent<Animator>();
         m_Rigidbody = gameObject.transform.parent.GetComponent<Rigidbody>();
@@ -54,6 +56,9 @@ public class EnemyAttacked : MonoBehaviour
         }
         if (alive == false)
         {
+            bloodFx.Play();
+
+
             destroyTime -= Time.fixedDeltaTime;
             if (destroyTime <= 0)
             {
@@ -71,7 +76,8 @@ public class EnemyAttacked : MonoBehaviour
     {
         triTime -= Time.fixedDeltaTime;
         if (attacking == true)
-        { 
+        {
+            Debug.Log("Attacked");
             if (triTime <= 0 && alive == true && cos > 0 && angle < 60 && Vector3.Distance(player.transform.position, transform.position) <= 3)
             {
                 death++;

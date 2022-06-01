@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyAttackedRange : MonoBehaviour
 {
     bool attacking;
+    public ParticleSystem bloodFx;
     private Animator ani;
     private Animator m_ani;
     public GameObject player;
@@ -21,6 +22,7 @@ public class EnemyAttackedRange : MonoBehaviour
     float cos, angle;
     void Start()
     {
+        bloodFx.Pause();
         player = GameObject.FindGameObjectWithTag("Hand with Crowbar");
         ani = player.GetComponent<Animator>();
         m_Rigidbody = gameObject.transform.parent.GetComponent<Rigidbody>();
@@ -36,7 +38,7 @@ public class EnemyAttackedRange : MonoBehaviour
         angle = Mathf.Acos(Vector3.Dot(playerDirection.normalized, zombiePosition.normalized)) * Mathf.Rad2Deg;
         if (death >= 1 && alive == true)
         {
-
+            bloodFx.Play();
             alive = false;
             era.stopAttack();
             efs.stopFace();

@@ -9,7 +9,8 @@ public class Score : MonoBehaviour
     public TextMeshProUGUI SScoreText;
     void Update()
     {
-        SScoreText.text = "Score:\n" + score.ToString();
+        SScoreText.text =  score.ToString();
+        //"Score:\n" +
     }
 
     public void getScore(int type)

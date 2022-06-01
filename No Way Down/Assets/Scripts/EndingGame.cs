@@ -65,10 +65,11 @@ public class EndingGame : MonoBehaviour
         if (next)
         {
             dataSave.GetComponent<DataSave>().L3NA = false;
-            int temp = score.checkScore() + (300 - timer.getTime()) * 10;
-            TimeCostText.text = "Time Cost: " + timer.getTime().ToString() + "s";
+            int temp = score.checkScore() + (100 - timer.getTime()) * 10;
+
+            TimeCostText.text = "Total Time: " + timer.getTime().ToString() + "s";
             TimeCost.SetActive(true);
-            if (timer.getTime() >= 300)
+            if (timer.getTime() >= 100)
             {
                 ScoreText.text = "Score: " + score.checkScore();
             }
