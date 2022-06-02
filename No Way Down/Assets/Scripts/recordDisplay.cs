@@ -19,6 +19,8 @@ public class recordDisplay : MonoBehaviour
     public GameObject L3ScoreGB;
     public GameObject L2Button;
     public GameObject L3Button;
+    public GameObject level2Lock;
+    public GameObject level3Lock;
     public int L1Time ;
     public int L1Score;
     public int L2Time;
@@ -53,57 +55,59 @@ public class recordDisplay : MonoBehaviour
     {
         if (L1NA==true)
         {
-            L1TimeText.text = "N/A";
-            L1ScoreText.text = "N/A";
+            L1TimeText.text = "TIME: N/A";
+            L1ScoreText.text = "SCORE: N/A";
         }
         else
         {
-            L1TimeText.text = L1Time.ToString()+"s";
-            L1ScoreText.text = L1Score.ToString();
+            L1TimeText.text = "TIME:" + L1Time.ToString()+"s";
+            L1ScoreText.text = "SCORE:" + L1Score.ToString();
         }
         if (L2 == true)
         {
+            level2Lock.SetActive(false);
             L2TimeGB.SetActive(true);
             L2ScoreGB.SetActive(true);
             L2Button.SetActive(true);
             if (L2NA == true)
             {
-                L2TimeText.text = "N/A";
-                L2ScoreText.text = "N/A";
+                L2TimeText.text = "TIME: N/A";
+                L2ScoreText.text = "SCORE: N/A";
             }
             else
             {
-                L2TimeText.text = L2Time.ToString() + "s";
-                L2ScoreText.text = L2Score.ToString();
+                L2TimeText.text = "TIME:" + L2Time.ToString() + "s";
+                L2ScoreText.text = "SCORE:" + L2Score.ToString();
             }
         }
         else
         {
-            L2TimeGB.SetActive(false);
-            L2ScoreGB.SetActive(false);
-            L2Button.SetActive(false);
+            //L2TimeGB.SetActive(false);
+            //L2ScoreGB.SetActive(false);
+            //L2Button.SetActive(false);
         }
         if (L3 == true)
         {
+            level3Lock.SetActive(false);
             L3TimeGB.SetActive(true);
             L3ScoreGB.SetActive(true);
             L3Button.SetActive(true);
             if (L3NA == true)
             {
-                L3TimeText.text = "N/A";
-                L3ScoreText.text = "N/A";
+                L3TimeText.text = "TIME: N/A";
+                L3ScoreText.text = "SCORE: N/A";
             }
             else
             {
-                L3TimeText.text = L3Time.ToString() + "s";
-                L3ScoreText.text = L3Score.ToString();
+                L3TimeText.text = "TIME:" + L3Time.ToString() + "s";
+                L3ScoreText.text = "SCORE:" + L3Score.ToString();
             }
         }
         else
         {
-            L3TimeGB.SetActive(false);
-            L3ScoreGB.SetActive(false);
-            L3Button.SetActive(false);
+            //L3TimeGB.SetActive(false);
+            //L3ScoreGB.SetActive(false);
+           //L3Button.SetActive(false);
         }
     }
 }
