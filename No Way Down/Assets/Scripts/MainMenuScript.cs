@@ -23,11 +23,6 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene(4);
     }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
     public void GoToTutorial()
     {
         SceneManager.LoadScene(1);

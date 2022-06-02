@@ -45690,14 +45690,14 @@ struct JumpToLevel2_tBD66E77BB41C96F0E0CAF701E78980B6D108C243  : public MonoBeha
 	Timer_t2FE811324BD2C741B8D6EBC18E20230874E35A20* ___timer_10;
 	// Score JumpToLevel2::score
 	Score_t190877D354724EB1BD99FA27F906E19CB8F0C88A* ___score_11;
-	// UnityEngine.GameObject JumpToLevel2::TimeCost
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___TimeCost_12;
-	// UnityEngine.GameObject JumpToLevel2::GBScore
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___GBScore_13;
 	// UnityEngine.GameObject JumpToLevel2::StopTimeText
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___StopTimeText_14;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___StopTimeText_12;
 	// UnityEngine.GameObject JumpToLevel2::StopScoreText
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___StopScoreText_15;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___StopScoreText_13;
+	// UnityEngine.GameObject JumpToLevel2::TimeFinal
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___TimeFinal_14;
+	// UnityEngine.GameObject JumpToLevel2::ScoreFinal
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___ScoreFinal_15;
 	// UnityEngine.GameObject JumpToLevel2::dataSave
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___dataSave_16;
 };
