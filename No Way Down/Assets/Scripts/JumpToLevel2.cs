@@ -8,17 +8,17 @@ public class JumpToLevel2 : MonoBehaviour
 {
     public GameObject player;
     bool NextLevel = false;
-    float JumpDelay = 5f;
+    float JumpDelay = 3.5f;
     bool Ending = false;
     public TextMeshProUGUI TimeCostText;
     public TextMeshProUGUI ScoreText;
     public Timer timer;
     public Score score;
-    public GameObject TimeCost;
-    public GameObject GBScore;
 
     public GameObject StopTimeText;
     public GameObject StopScoreText;
+    public GameObject TimeFinal;
+    public GameObject ScoreFinal;
 
     public GameObject dataSave;
 
@@ -26,9 +26,9 @@ public class JumpToLevel2 : MonoBehaviour
 
     void Start()
     {
-        TimeCost.SetActive(false);
-        GBScore.SetActive(false);
-        dataSave= GameObject.FindGameObjectWithTag("Data");
+        TimeFinal.SetActive(false);
+        ScoreFinal.SetActive(false);
+        dataSave = GameObject.FindGameObjectWithTag("Data");
     }
 
     void OnTriggerEnter(Collider other)
@@ -52,7 +52,9 @@ public class JumpToLevel2 : MonoBehaviour
         if (JumpDelay <= 0)
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene(3);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneManager.LoadScene(0);// change to jump back start menu
         }
     }
 
@@ -64,7 +66,8 @@ public class JumpToLevel2 : MonoBehaviour
             dataSave.GetComponent<DataSave>().L1NA = false;
             int temp = score.checkScore() + (100 - timer.getTime()) * 10;
             TimeCostText.text = "Total Time: "+timer.getTime().ToString()+"s";
-            TimeCost.SetActive(true);
+            TimeFinal.SetActive(true);
+            
             if (timer.getTime() >= 100)
             {
                 ScoreText.text = "Score: " + score.checkScore();
@@ -72,7 +75,7 @@ public class JumpToLevel2 : MonoBehaviour
             {
                 ScoreText.text = "Score: " + temp;
             }
-            GBScore.SetActive(true);
+            ScoreFinal.SetActive(true);
             if (dataSave.GetComponent<DataSave>().L1Time> timer.getTime())
             {
                 dataSave.GetComponent<DataSave>().L1Time = timer.getTime();

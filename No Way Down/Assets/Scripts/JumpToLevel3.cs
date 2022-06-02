@@ -8,7 +8,7 @@ public class JumpToLevel3 : MonoBehaviour
 {
     public GameObject player;
     bool NextLevel = false;
-    float JumpDelay = 5f;
+    float JumpDelay = 3.5f;
     bool Ending = false;
     public TextMeshProUGUI TimeCostText;
     public TextMeshProUGUI ScoreText;
@@ -52,7 +52,9 @@ public class JumpToLevel3 : MonoBehaviour
         if (JumpDelay <= 0)
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene(4);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneManager.LoadScene(0);// change to jump back start menu
         }
     }
 

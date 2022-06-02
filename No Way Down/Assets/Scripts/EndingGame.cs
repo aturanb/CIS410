@@ -11,7 +11,7 @@ public class EndingGame : MonoBehaviour
     public GameObject winTextObject;
     public static float timeScale { get; set; }
     bool Ending = false;
-    float EndDelay = 5f;
+    float EndDelay = 3.5f;
     public TextMeshProUGUI TimeCostText;
     public TextMeshProUGUI ScoreText;
     public Score score;
@@ -55,6 +55,8 @@ public class EndingGame : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene(0);
         }
             
