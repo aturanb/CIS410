@@ -23,7 +23,6 @@ ScriptsOnlyBuild:
     - PlayerMovement
     - ProjectileEffect
     - Score
-    - SetVolume
     - Timer
     - WallRunning
     - recordDisplay
@@ -52,7 +51,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
-    - UnityEngine.UI.Slider
   serializedClasses:
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
@@ -84,7 +82,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
-    - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
   sceneClasses:
     Assets/Scenes/Level1.unity:
@@ -119,8 +116,6 @@ ScriptsOnlyBuild:
     - Class: 82
       Script: {instanceID: 0}
     - Class: 83
-      Script: {instanceID: 0}
-    - Class: 89
       Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
@@ -167,8 +162,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4966}
     - Class: 114
-      Script: {instanceID: 5074}
-    - Class: 114
       Script: {instanceID: 5156}
     - Class: 114
       Script: {instanceID: 5532}
@@ -181,11 +174,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6752}
     - Class: 114
-      Script: {instanceID: 7194}
+      Script: {instanceID: 7260}
     - Class: 114
-      Script: {instanceID: 7262}
-    - Class: 114
-      Script: {instanceID: 33860}
+      Script: {instanceID: 30790}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -211,12 +202,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
@@ -252,8 +237,6 @@ ScriptsOnlyBuild:
     - Class: 82
       Script: {instanceID: 0}
     - Class: 83
-      Script: {instanceID: 0}
-    - Class: 89
       Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
@@ -302,8 +285,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4966}
     - Class: 114
-      Script: {instanceID: 5074}
-    - Class: 114
       Script: {instanceID: 5156}
     - Class: 114
       Script: {instanceID: 5298}
@@ -318,13 +299,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6752}
     - Class: 114
-      Script: {instanceID: 7194}
+      Script: {instanceID: 7212}
     - Class: 114
-      Script: {instanceID: 7214}
+      Script: {instanceID: 7260}
     - Class: 114
-      Script: {instanceID: 7262}
-    - Class: 114
-      Script: {instanceID: 7266}
+      Script: {instanceID: 7264}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -352,12 +331,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
@@ -443,8 +416,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4966}
     - Class: 114
-      Script: {instanceID: 5074}
-    - Class: 114
       Script: {instanceID: 5156}
     - Class: 114
       Script: {instanceID: 5532}
@@ -457,13 +428,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6752}
     - Class: 114
-      Script: {instanceID: 7194}
+      Script: {instanceID: 7212}
     - Class: 114
-      Script: {instanceID: 7214}
+      Script: {instanceID: 7260}
     - Class: 114
-      Script: {instanceID: 7262}
-    - Class: 114
-      Script: {instanceID: 7266}
+      Script: {instanceID: 7264}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -491,12 +460,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
@@ -532,6 +495,8 @@ ScriptsOnlyBuild:
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
       Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
@@ -580,7 +545,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7030}
     - Class: 114
-      Script: {instanceID: 7262}
+      Script: {instanceID: 7260}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -687,7 +652,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6200}
     - Class: 114
-      Script: {instanceID: 7262}
+      Script: {instanceID: 7260}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1569,12 +1534,6 @@ ScriptsOnlyBuild:
     className: UnityOnMoveMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 2122ad77b35f7f0129bab21633be2a24
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SetVolume
-  - hash:
-      serializedVersion: 2
       Hash: 8e0f9ad8fb9a98c3b1c425938f6d6011
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1682,4 +1641,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Level1.unity
   - Assets/Scenes/Level2.unity
   - Assets/Scenes/Level3.unity
-  playerPath: /Users/joshuaonofrei/Desktop/wwqw
+  playerPath: C:/Users/ZHR/Desktop/cis410/FBuildTest

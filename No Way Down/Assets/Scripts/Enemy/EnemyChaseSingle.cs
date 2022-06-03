@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyChaseSingle : MonoBehaviour
 {
-    public AudioSource sound;
-    public AudioSource stagnant_sound;
     public GameObject player;
     [Header("Chase")]
     [SerializeField] float range;
@@ -33,11 +31,9 @@ public class EnemyChaseSingle : MonoBehaviour
     {
         if (chase == true)
         {
-            sound.Play();
             attacking = ani.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Armature|Crowbar -hit3");
             if (Vector3.Distance(player.transform.position, transform.position) <= range && stopping == false)
             {
-                stagnant_sound.Play();
                 Vector3 temp = player.transform.position - transform.position;
                 temp.y = 0;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(temp), 5 * Time.deltaTime);
@@ -46,7 +42,6 @@ public class EnemyChaseSingle : MonoBehaviour
             }
             else if (stopping == true && time >= 0.5f)
             {
-                
                 stopping = false;
                 time = 0;
             }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyFaceSingle : MonoBehaviour
 {
     public GameObject player;
-    public AudioSource sound;
     [Header("Face Range")]
     [SerializeField] float range;
     Rigidbody m_Rigidbody;
@@ -25,7 +24,7 @@ public class EnemyFaceSingle : MonoBehaviour
     {
         if (face == true)
         {
-            sound.Play();
+            
             if (Vector3.Distance(player.transform.position, transform.position) <= range)
             {
                 Vector3 temp = player.transform.position - transform.position;

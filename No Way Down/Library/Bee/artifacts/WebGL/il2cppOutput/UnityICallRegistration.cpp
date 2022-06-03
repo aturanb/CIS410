@@ -130,6 +130,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Application_get_isPlaying();
 		Register_UnityEngine_Application_get_isPlaying();
 
+		//System.Void UnityEngine.Application::Quit(System.Int32)
+		void Register_UnityEngine_Application_Quit();
+		Register_UnityEngine_Application_Quit();
+
 		//UnityEngine.RuntimePlatform UnityEngine.Application::get_platform()
 		void Register_UnityEngine_Application_get_platform();
 		Register_UnityEngine_Application_get_platform();
@@ -143,14 +147,6 @@ void RegisterAllStrippedInternalCalls()
 		Register_UnityEngine_AsyncOperation_InternalDestroy();
 
 	//End Registrations for type : UnityEngine.AsyncOperation
-
-	//Start Registrations for type : UnityEngine.Audio.AudioMixer
-
-		//System.Boolean UnityEngine.Audio.AudioMixer::SetFloat(System.String,System.Single)
-		void Register_UnityEngine_Audio_AudioMixer_SetFloat();
-		Register_UnityEngine_Audio_AudioMixer_SetFloat();
-
-	//End Registrations for type : UnityEngine.Audio.AudioMixer
 
 	//Start Registrations for type : UnityEngine.Behaviour
 

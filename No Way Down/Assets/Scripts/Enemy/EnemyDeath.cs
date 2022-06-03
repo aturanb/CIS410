@@ -8,6 +8,7 @@ public class EnemyDeath : MonoBehaviour
     {
         if (collision.gameObject.tag == "death")
         {
+
             Destroy(gameObject);
         }
     }
