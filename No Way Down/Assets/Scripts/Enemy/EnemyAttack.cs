@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    
+    public AudioSource sound;
     public GameObject player;
     private Animator ani;
     Vector3 direction;
@@ -25,6 +25,7 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
+        sound.Play();
         direction = new Vector3((player.transform.position.x - transform.position.x), 0, (player.transform.position.z - transform.position.z));
         direction = direction.normalized;
         direction.x = direction.x * (0.7f);
@@ -36,6 +37,7 @@ public class EnemyAttack : MonoBehaviour
         triTime -= Time.fixedDeltaTime;
         if (other.gameObject == player)
         {
+            
             if (triTime <= 0 && alive==true)
             {
                 ani.SetBool("Attack", true);

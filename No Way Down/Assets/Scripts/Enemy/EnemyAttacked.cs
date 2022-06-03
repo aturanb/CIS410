@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyAttacked : MonoBehaviour
 {
+    public AudioSource sound;
     bool attacking;
     public ParticleSystem bloodFx;
     private Animator ani;
@@ -57,7 +58,7 @@ public class EnemyAttacked : MonoBehaviour
         if (alive == false)
         {
             bloodFx.Play();
-
+            sound.Play();
 
             destroyTime -= Time.fixedDeltaTime;
             if (destroyTime <= 0)
