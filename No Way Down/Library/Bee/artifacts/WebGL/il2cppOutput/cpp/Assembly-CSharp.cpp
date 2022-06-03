@@ -3204,8 +3204,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t DataSave_get_L2Score_mFFB
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void DataSave_set_L2Score_m5B30861699387A6860EB9470BEBA993E1C370F86_inline (DataSave_tEC793DD63EE01911D0A9FBC37080F84AEAE0C9DE* __this, int32_t ___value0, const RuntimeMethod* method) ;
 // System.Void JumpToStart::EndLevel(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JumpToStart_EndLevel_mBE8E760EAC08FC226785828794B69294C1851CCF (JumpToStart_tCC621A3A0D3D0E2C1BFD30309FB63261B3B2A7CA* __this, bool ___next0, const RuntimeMethod* method) ;
-// System.Void UnityEngine.Application::Quit()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Application_Quit_m965C6D4CA85A24DD95B347D22837074F19C58134 (const RuntimeMethod* method) ;
 // System.Void UnityEngine.SceneManagement.SceneManager::LoadScene(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SceneManager_LoadScene_m7237839058F581BFCA0A79BB96F6F931469E43CF (String_t* ___sceneName0, const RuntimeMethod* method) ;
 // System.Boolean UnityEngine.Input::GetKeyDown(UnityEngine.KeyCode)
@@ -6557,16 +6555,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MainMenuScript_L3_m40E3949773F37C09997B5
 		return;
 	}
 }
-// System.Void MainMenuScript::QuitGame()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MainMenuScript_QuitGame_m4DAACD3D7209F5A28ACC1F64AC119B5D3928A2B5 (MainMenuScript_tE48C74D2C0B2E001BA00CACB8CF59B50BA024B4C* __this, const RuntimeMethod* method) 
-{
-	{
-		// Application.Quit();
-		Application_Quit_m965C6D4CA85A24DD95B347D22837074F19C58134(NULL);
-		// }
-		return;
-	}
-}
 // System.Void MainMenuScript::GoToTutorial()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MainMenuScript_GoToTutorial_m2B1B0EAF20BDA4F864ACCFA4E960A92E79CF5D72 (MainMenuScript_tE48C74D2C0B2E001BA00CACB8CF59B50BA024B4C* __this, const RuntimeMethod* method) 
 {
@@ -6743,16 +6731,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PauseMenu_LoadMenu_m301E8408F8C5253F3753
 		// SceneManager.LoadScene(0);
 		il2cpp_codegen_runtime_class_init_inline(SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
 		SceneManager_LoadScene_mE00D17D79AD74B307F913BBF296A36115548DB6D(0, NULL);
-		// }
-		return;
-	}
-}
-// System.Void PauseMenu::QuitGame()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PauseMenu_QuitGame_m699C16B5AE66C12C48F4D7B4821169679C5FF760 (PauseMenu_t36539DEACE8377BD498A235C80769301799E1985* __this, const RuntimeMethod* method) 
-{
-	{
-		// Application.Quit();
-		Application_Quit_m965C6D4CA85A24DD95B347D22837074F19C58134(NULL);
 		// }
 		return;
 	}
