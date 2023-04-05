@@ -1,4 +1,5 @@
-# Term Project for CIS410 Game Development
+# No Way Down: Fast-paced Platformer 
+
 ## **Team Members:**
 Turan Bulut,  turanb@uoregon.edu  
 Nick Onofrei, nonocifre@uoreogn.edu  
